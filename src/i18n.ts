@@ -72,6 +72,7 @@ export const translations = {
     fileRejectedNotPdf: 'Rejected: {name} is not a valid PDF file.',
     fileDamaged: 'Error: {name} is corrupted or password-protected and cannot be processed.',
     optionalDocSkippedHint: 'Optional documents without files will be cleanly skipped from the package without affecting sequence.',
+  },
   bn: {
     appTitle: 'টেন্ডার ডকুমেন্ট প্যাকেজ বিল্ডার',
     appSubtitle: 'যাচাইকৃত, ত্রুটিমুক্ত ও নিয়মানুযায়ী সুবিন্যস্ত টেন্ডার প্যাকেজ প্রস্তুত করুন',
