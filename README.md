@@ -1,9 +1,11 @@
 # Tender Document Package Builder
 
 **AI DevFest Vibe-Coding Contest 2026**  
-**Participant Registration Number:** `devfest-252-35-597`  
+**Participant Name:** Faiaz (`Faiazzend`)  
+**Participant Registration Number:** `252-35-597`  
+**GitHub Repository:** [https://github.com/Faiazzend/devfest-252-35-597](https://github.com/Faiazzend/devfest-252-35-597)  
+**Public HTTPS Live Link:** [https://faiazzend.github.io/devfest-252-35-597/](https://faiazzend.github.io/devfest-252-35-597/)  
 **License:** MIT License  
-**Public HTTPS Live Link:** `https://devfest-252-35-597.vercel.app` *(or GitHub Pages: `https://devfest-252-35-597.github.io/devfest-252-35-597/`)*
 
 ---
 
