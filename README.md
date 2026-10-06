@@ -4,7 +4,8 @@
 **Participant Name:** Faiaz (`Faiazzend`)  
 **Participant Registration Number:** `252-35-597`  
 **GitHub Repository:** [https://github.com/Faiazzend/devfest-252-35-597](https://github.com/Faiazzend/devfest-252-35-597)  
-**Public HTTPS Live Link:** [https://faiazzend.github.io/devfest-252-35-597/](https://faiazzend.github.io/devfest-252-35-597/)  
+**Public HTTPS Live Link:** [https://devfest-252-35-597.vercel.app/](https://devfest-252-35-597.vercel.app/)  
+**Backup HTTPS Link (GitHub Pages):** [https://faiazzend.github.io/devfest-252-35-597/](https://faiazzend.github.io/devfest-252-35-597/)  
 **License:** MIT License  
 
 ---
@@ -79,7 +80,7 @@ When submitting bids for organizational tenders, vendors must assemble complex m
 ### Steps
 ```bash
 # Clone the repository
-git clone https://github.com/<your-username>/devfest-252-35-597.git
+git clone https://github.com/Faiazzend/devfest-252-35-597.git
 cd devfest-252-35-597
 
 # Install dependencies
