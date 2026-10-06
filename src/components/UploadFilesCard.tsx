@@ -293,7 +293,15 @@ export const UploadFilesCard: React.FC<UploadFilesCardProps> = ({
                     </TableCell>
                     <TableCell>
                       {file.isDuplicate ? (
-                        <Tooltip title={file.duplicateGroup?.join(', ') || 'Identical content'}>
+                        <Tooltip
+                          title={
+                            file.duplicateGroup && file.duplicateGroup.length > 1
+                              ? `${language === 'en' ? 'Exact duplicate of: ' : 'হুবহু একই কন্টেন্ট: '} ${file.duplicateGroup
+                                  .filter((n) => n !== file.name)
+                                  .join(', ')}`
+                              : 'Identical content detected'
+                          }
+                        >
                           <Chip
                             icon={<WarningIcon />}
                             label={language === 'en' ? 'Duplicate Content' : 'ডুপ্লিকেট'}

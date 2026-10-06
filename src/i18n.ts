@@ -71,7 +71,7 @@ export const translations = {
     packageReady: 'Package generated successfully!',
     fileRejectedNotPdf: 'Rejected: {name} is not a valid PDF file.',
     fileDamaged: 'Error: {name} is corrupted or password-protected and cannot be processed.',
-  },
+    optionalDocSkippedHint: 'Optional documents without files will be cleanly skipped from the package without affecting sequence.',
   bn: {
     appTitle: 'টেন্ডার ডকুমেন্ট প্যাকেজ বিল্ডার',
     appSubtitle: 'যাচাইকৃত, ত্রুটিমুক্ত ও নিয়মানুযায়ী সুবিন্যস্ত টেন্ডার প্যাকেজ প্রস্তুত করুন',
@@ -142,5 +142,6 @@ export const translations = {
     packageReady: 'প্যাকেজ সফলভাবে তৈরি হয়েছে!',
     fileRejectedNotPdf: 'বাতিল: {name} একটি বৈধ পিডিএফ ফাইল নয়।',
     fileDamaged: 'ত্রুটি: {name} ফাইলটি ক্ষতিগ্রস্ত বা পাসওয়ার্ডযুক্ত, এটি প্রক্রিয়া করা সম্ভব নয়।',
+    optionalDocSkippedHint: 'ফাইল সংযুক্ত না করা ঐচ্ছিক নথিগুলো চূড়ান্ত প্যাকেজ থেকে স্বয়ংক্রিয়ভাবে বাদ দেওয়া হবে।',
   }
 };

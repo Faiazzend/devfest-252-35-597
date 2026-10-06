@@ -115,7 +115,7 @@ export const RequirementsTable: React.FC<RequirementsTableProps> = ({
         );
       case 'Not provided':
         return (
-          <Tooltip title={row.statusExplanation}>
+          <Tooltip title={`${row.statusExplanation} (${t.optionalDocSkippedHint})`}>
             <Chip
               icon={<HelpIcon />}
               label={t.statusNotProvided}
