@@ -5,7 +5,6 @@ import {
   Typography,
   Box,
   Button,
-  Grid,
   Chip,
   Divider,
 } from '@mui/material';
@@ -15,7 +14,7 @@ import {
   Assignment as AssignmentIcon,
   Event as EventIcon,
   Person as PersonIcon,
-  FlashOn as DemoIcon,
+  AutoAwesome as DemoIcon,
 } from '@mui/icons-material';
 import { TenderInfo } from '../types';
 import { Language, translations } from '../i18n';
@@ -46,13 +45,22 @@ export const TenderDetailsCard: React.FC<TenderDetailsCardProps> = ({
       onRequirementsLoaded(content);
     };
     reader.readAsText(file);
-    // Reset so same file can be reloaded if needed
     e.target.value = '';
   };
 
   return (
-    <Card elevation={1} sx={{ mb: 3, border: '1px solid #e2e8f0' }}>
-      <CardContent sx={{ p: { xs: 2, sm: 3 } }}>
+    <Card
+      elevation={0}
+      sx={{
+        mb: 3,
+        borderRadius: '16px',
+        border: '1px solid #e2e8f0',
+        backgroundColor: '#ffffff',
+        boxShadow: '0 4px 24px -4px rgba(15, 23, 42, 0.04)',
+        overflow: 'hidden',
+      }}
+    >
+      <CardContent sx={{ p: { xs: 2.5, sm: 3.5 } }}>
         <Box
           sx={{
             display: 'flex',
@@ -60,22 +68,36 @@ export const TenderDetailsCard: React.FC<TenderDetailsCardProps> = ({
             alignItems: 'center',
             flexWrap: 'wrap',
             gap: 2,
-            mb: 2,
+            mb: tender ? 2.5 : 0,
           }}
         >
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
-            <AssignmentIcon color="primary" sx={{ fontSize: 28 }} />
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.8 }}>
+            <Box
+              sx={{
+                width: 44,
+                height: 44,
+                borderRadius: '12px',
+                backgroundColor: '#eff6ff',
+                color: '#2563eb',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                border: '1px solid #dbeafe',
+              }}
+            >
+              <AssignmentIcon sx={{ fontSize: 24 }} />
+            </Box>
             <Box>
-              <Typography variant="h6" sx={{ fontWeight: 700 }}>
+              <Typography variant="h6" sx={{ fontWeight: 700, color: '#0f172a', letterSpacing: '-0.01em' }}>
                 {t.tenderDetails}
               </Typography>
-              <Typography variant="body2" color="text.secondary">
-                {tender ? `${tender.tender_id} - ${tender.title}` : t.uploadRequirementsHint}
+              <Typography variant="body2" sx={{ color: '#64748b' }}>
+                {tender ? `${tender.tender_id} • ${tender.title}` : t.uploadRequirementsHint}
               </Typography>
             </Box>
           </Box>
 
-          <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
+          <Box sx={{ display: 'flex', gap: 1.2, flexWrap: 'wrap' }}>
             <input
               type="file"
               accept=".json,application/json"
@@ -87,14 +109,39 @@ export const TenderDetailsCard: React.FC<TenderDetailsCardProps> = ({
               variant="contained"
               startIcon={<UploadFileIcon />}
               onClick={() => fileInputRef.current?.click()}
+              sx={{
+                borderRadius: '10px',
+                textTransform: 'none',
+                fontWeight: 600,
+                fontSize: '0.88rem',
+                px: 2.2,
+                py: 0.9,
+                backgroundColor: '#1e40af',
+                boxShadow: '0 2px 8px rgba(30, 64, 175, 0.25)',
+                '&:hover': { backgroundColor: '#1d4ed8' },
+              }}
             >
               {t.loadRequirements}
             </Button>
             <Button
               variant="outlined"
-              color="secondary"
               startIcon={<DemoIcon />}
               onClick={onLoadSample}
+              sx={{
+                borderRadius: '10px',
+                textTransform: 'none',
+                fontWeight: 600,
+                fontSize: '0.88rem',
+                px: 2,
+                py: 0.9,
+                color: '#0f766e',
+                borderColor: '#ccfbf1',
+                backgroundColor: '#f0fdfa',
+                '&:hover': {
+                  borderColor: '#99f6e4',
+                  backgroundColor: '#ccfbf1',
+                },
+              }}
             >
               {language === 'en' ? 'Load Sample Data' : 'স্যাম্পল ডেটা লোড'}
             </Button>
@@ -103,7 +150,7 @@ export const TenderDetailsCard: React.FC<TenderDetailsCardProps> = ({
 
         {tender && (
           <>
-            <Divider sx={{ my: 2 }} />
+            <Divider sx={{ my: 2.5, borderColor: '#f1f5f9' }} />
             <Box
               sx={{
                 display: 'grid',
@@ -111,38 +158,73 @@ export const TenderDetailsCard: React.FC<TenderDetailsCardProps> = ({
                 gap: 2,
               }}
             >
-              <Box sx={{ p: 1.5, backgroundColor: '#f8fafc', borderRadius: 1.5, border: '1px solid #f1f5f9' }}>
-                <Typography variant="caption" color="text.secondary" sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-                  <AssignmentIcon fontSize="inherit" /> {t.tenderId}
+              <Box
+                sx={{
+                  p: 2,
+                  backgroundColor: '#f8fafc',
+                  borderRadius: '12px',
+                  border: '1px solid #e2e8f0',
+                  transition: 'all 0.2s',
+                  '&:hover': { backgroundColor: '#f1f5f9' },
+                }}
+              >
+                <Typography variant="caption" sx={{ color: '#64748b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                  {t.tenderId}
                 </Typography>
-                <Typography variant="subtitle2" sx={{ fontWeight: 700, mt: 0.5, color: '#0f2942' }}>
+                <Typography variant="subtitle1" sx={{ fontWeight: 700, mt: 0.5, color: '#0f172a' }}>
                   {tender.tender_id}
                 </Typography>
               </Box>
 
-              <Box sx={{ p: 1.5, backgroundColor: '#f8fafc', borderRadius: 1.5, border: '1px solid #f1f5f9' }}>
-                <Typography variant="caption" color="text.secondary" sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-                  <BusinessIcon fontSize="inherit" /> {t.procuringEntity}
+              <Box
+                sx={{
+                  p: 2,
+                  backgroundColor: '#f8fafc',
+                  borderRadius: '12px',
+                  border: '1px solid #e2e8f0',
+                  transition: 'all 0.2s',
+                  '&:hover': { backgroundColor: '#f1f5f9' },
+                }}
+              >
+                <Typography variant="caption" sx={{ color: '#64748b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                  {t.procuringEntity}
                 </Typography>
-                <Typography variant="subtitle2" sx={{ fontWeight: 600, mt: 0.5 }}>
+                <Typography variant="subtitle2" sx={{ fontWeight: 600, mt: 0.5, color: '#334155' }}>
                   {tender.procuring_entity}
                 </Typography>
               </Box>
 
-              <Box sx={{ p: 1.5, backgroundColor: '#f8fafc', borderRadius: 1.5, border: '1px solid #f1f5f9' }}>
-                <Typography variant="caption" color="text.secondary" sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-                  <PersonIcon fontSize="inherit" /> {t.bidderName}
+              <Box
+                sx={{
+                  p: 2,
+                  backgroundColor: '#f8fafc',
+                  borderRadius: '12px',
+                  border: '1px solid #e2e8f0',
+                  transition: 'all 0.2s',
+                  '&:hover': { backgroundColor: '#f1f5f9' },
+                }}
+              >
+                <Typography variant="caption" sx={{ color: '#64748b', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                  {t.bidderName}
                 </Typography>
-                <Typography variant="subtitle2" sx={{ fontWeight: 600, mt: 0.5 }}>
+                <Typography variant="subtitle2" sx={{ fontWeight: 600, mt: 0.5, color: '#334155' }}>
                   {tender.bidder}
                 </Typography>
               </Box>
 
-              <Box sx={{ p: 1.5, backgroundColor: '#fef2f2', borderRadius: 1.5, border: '1px solid #fee2e2' }}>
-                <Typography variant="caption" color="error" sx={{ display: 'flex', alignItems: 'center', gap: 0.5, fontWeight: 600 }}>
-                  <EventIcon fontSize="inherit" /> {t.submissionDeadline}
+              <Box
+                sx={{
+                  p: 2,
+                  backgroundColor: '#fff1f2',
+                  borderRadius: '12px',
+                  border: '1px solid #ffe4e6',
+                  transition: 'all 0.2s',
+                }}
+              >
+                <Typography variant="caption" sx={{ color: '#e11d48', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                  {t.submissionDeadline}
                 </Typography>
-                <Typography variant="subtitle2" sx={{ fontWeight: 700, mt: 0.5, color: '#b91c1c' }}>
+                <Typography variant="subtitle1" sx={{ fontWeight: 800, mt: 0.5, color: '#be123c' }}>
                   {tender.submission_deadline}
                 </Typography>
               </Box>

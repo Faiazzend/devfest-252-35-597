@@ -32,17 +32,26 @@ import { PDFDocument } from 'pdf-lib';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#1e40af', // Deep trustworthy blue
+      main: '#2563eb', // Modern vibrant indigo-blue
+      dark: '#1d4ed8',
     },
     secondary: {
-      main: '#0f766e', // Teal
+      main: '#0f766e', // Teal accent
     },
     background: {
       default: '#f8fafc',
+      paper: '#ffffff',
+    },
+    text: {
+      primary: '#0f172a',
+      secondary: '#64748b',
     },
   },
+  shape: {
+    borderRadius: 12,
+  },
   typography: {
-    fontFamily: '"Roboto", "Hind Siliguri", sans-serif',
+    fontFamily: '"Hind Siliguri", "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
   },
 });
 
